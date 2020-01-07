@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-const SellerSelector: StorefrontFunctionComponent<any> = ({}) => {
+const SellerSelector: StorefrontFunctionComponent<any> = () => {
   return <Fragment></Fragment>
 }
 
