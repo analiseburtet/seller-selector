@@ -1,16 +1,18 @@
 import React, { Fragment } from 'react'
 import useProduct from 'vtex.product-context/useProduct'
-import { Link } from 'vtex.render-runtime'
 
-const SellerSelector: StorefrontFunctionComponent<any> = () => {
-  const { selectedItem } = useProduct()
-  const qtdOtherSellers = selectedItem.sellers.length - 1
+const SellerSelector: StorefrontFunctionComponent<any> = ({ slug }) => {
+  console.log('Slug', slug)
+  const { product, selectedItem, selectedQuantity } = useProduct()
+  console.log(product, selectedItem, selectedQuantity)
 
-  if (qtdOtherSellers < 1) return <Fragment></Fragment>
+  if (!product) return <Fragment>Ooooops</Fragment>
 
   return (
     <Fragment>
-      <Link to="/sellers">{qtdOtherSellers} more offer(s)</Link>
+      teste?
+      {product.productName}
+      {/* <img src="https://d1io3yog0oux5.cloudfront.net/streetcontent2/files/pages/under-construction/under-construction.png"></img> */}
     </Fragment>
   )
 }

@@ -1,4 +1,13 @@
 {
+  "store.sellers": {
+    "allowed": [
+      "seller-selector"
+    ],
+    "around": [
+      "productWrapper"
+    ],
+    "context": "vtex.store/ProductContext"
+  },
   "seller-selector": {
     "component": "SellerSelector"
   },

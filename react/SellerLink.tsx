@@ -3,14 +3,16 @@ import useProduct from 'vtex.product-context/useProduct'
 import { Link } from 'vtex.render-runtime'
 
 const SellerLink: StorefrontFunctionComponent<any> = () => {
-  const { selectedItem } = useProduct()
+  const { selectedItem, product } = useProduct()
   const qtdOtherSellers = selectedItem.sellers.length - 1
 
   if (qtdOtherSellers < 1) return <Fragment></Fragment>
 
   return (
     <Fragment>
-      <Link to="/sellers">{qtdOtherSellers} more offer(s)</Link>
+      <Link page="store.sellers" params={{ slug: product.linkText }}>
+        {qtdOtherSellers} more offer(s)
+      </Link>
     </Fragment>
   )
 }
