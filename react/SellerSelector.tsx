@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import useProduct from 'vtex.product-context/useProduct'
+import { Link } from 'vtex.render-runtime'
 
 const SellerSelector: StorefrontFunctionComponent<any> = () => {
   const { selectedItem } = useProduct()
@@ -8,7 +9,7 @@ const SellerSelector: StorefrontFunctionComponent<any> = () => {
 
   return (
     <Fragment>
-      <a href="#">{qtdOtherSellers} more offer(s)</a>
+      <Link to="/sellers">{qtdOtherSellers} more offer(s)</Link>
     </Fragment>
   )
 }
