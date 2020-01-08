@@ -10,7 +10,11 @@ const SellerLink: StorefrontFunctionComponent<any> = () => {
 
   return (
     <Fragment>
-      <Link page="store.sellers" params={{ slug: product.linkText }}>
+      <Link
+        page="store.sellers"
+        params={{ slug: product.linkText }}
+        className="c-on-base fw5 dib-s no-underline pv4 ph2 hover-bg-muted-4 br2 hover-white:hover"
+      >
         {qtdOtherSellers} more offer(s)
       </Link>
     </Fragment>
