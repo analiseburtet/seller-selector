@@ -1,58 +1,61 @@
-# VTEX React App Template
+📢 Use this project, [contribute](https://github.com/analiseburtet/seller-selector) to it or open issues to help evolve it using [Store Discussion](https://github.com/vtex-apps/store-discussion).
 
-Our guide repository to structure for react apps, that should be used as a template.
+# SellerSelector
 
-We use `yarn` as our default package manager, before coding make sure to run yarn on: `root` and `react` folders.
+The VTEX SellerSelector is a ...
 
-## Some features:
+# TODO - REPLACE CONTENT
 
-### Tests
+![img2-breadcrumb](https://user-images.githubusercontent.com/52087100/69836587-a4237380-1228-11ea-89c8-0f34cea3a96f.png)
 
-For testing we use `@vtex/test-tools`, our own testing framework based on `react-testing-library`, the tests should be located on the `react/__tests__` folder. For references, visit our [repository](https://github.com/vtex/test-tools).
+## Configuration
 
-### Hooks
-
-Husky hooks tha runs on every `pre-commit` and `pre-push`.
-
-### Intl Equalizer
-
-Tool for equalizing the messages located on the `messages` folder/builder. It's configured to use the **en.json** as the default file for comparison. For references, visit our [repository](https://github.com/vtex/intl-equalizer).
-
-### Lint + Formatting
-
-TS lint configured with Prettier and .Config.
-
-### Available Scripts
+1. Import the breadcrumb's app to your theme's dependencies in the `manifest.json`, for example:
 
 ```json
-{
-  "lint": "cd ./react && yarn lint",
-  "test": "cd ./react && yarn test",
-  "lint:locales": "intl-equalizer",
-  "locales:fix": "intl-equalizer --fix",
-  "verify": "yarn lint && yarn lint:locales && yarn test"
-}
+  dependencies: {
+    "vtex.breadcrumb": "1.x"
+  }
 ```
 
-### Ci
+2. Add the `breadcrumb` block to the Product and Search template. For example:
 
-#### Install:
-
-```yml
-install:
-  commands:
-    - echo Installing Packages...
-    - cd react
-    - npm install
-    - echo Packages installed!
+```
+ "breadcrumb": {
+    "props": {
+      "showOnMobile": true
+    }
+  },
 ```
 
-#### Pre-build:
+| Prop name    | Type            | Description    | Default value                                                                                                                               |
+| ------------ | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | 
+| `showOnMobile`        | `Boolean`       | It determines whether Breadcrumb should also be displayed on mobile          | `false`              |
+| `homeIconSize`  | `Number`        | Controls the `size` property of [`IconHome`](https://github.com/vtex-apps/store-icons#icons)                                                                                                      | `26` |
+| `caretIconSize` | `Number`        | Controls the `size` property of [`IconCaret`](https://github.com/vtex-apps/store-icons#icons)                                                                                                     | `8` |
 
-```yml
-pre_build:
-  commands:
-    - echo Running tests...
-    - npm run verify
-    - echo Lint and tests finished!
+:warning: The product's categories should appear as an array in one of this two formats:
+
+```javascript
+categories = ['/Eletronics/', '/Eletronics/Computers']
 ```
+
+```javascript
+categories = ['eletronics', 'eletronics-computers']
+```
+
+## Customization
+
+In order to apply CSS customizations in this and other blocks, follow the instructions given in the recipe on [Using CSS Handles for store customization](https://vtex.io/docs/recipes/style/using-css-handles-for-store-customization). 
+
+| CSS Handles |
+| ----------- | 
+| `container` | 
+| `link`      | 
+| `arrow`     | 
+| `homeLink`  | 
+| `termArrow` |
+
+
+
+
