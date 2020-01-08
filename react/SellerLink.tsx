@@ -10,14 +10,16 @@ const SellerLink: StorefrontFunctionComponent<any> = () => {
   if (qtdOtherSellers < 1) return <Fragment></Fragment>
 
   return (
-    <Fragment>
-      <Link page="store.sellers" params={{ slug: product.linkText }}>
-        <FormattedMessage
-          id="store/seller-link"
-          values={{ count: qtdOtherSellers }}
-        />
-      </Link>
-    </Fragment>
+    <Link
+      page="store.sellers"
+      params={{ slug: product.linkText }}
+      className="c-on-base fw5 dib-s no-underline pv4 ph2 hover-bg-muted-4 br2 hover-white:hover"
+    >
+      <FormattedMessage
+        id="store/seller-link"
+        values={{ count: qtdOtherSellers }}
+      />
+    </Link>
   )
 }
 
