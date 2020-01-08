@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import useProduct from 'vtex.product-context/useProduct'
 import { Link } from 'vtex.render-runtime'
 
-const SellerSelector: StorefrontFunctionComponent<any> = () => {
+const SellerLink: StorefrontFunctionComponent<any> = () => {
   const { selectedItem } = useProduct()
   const qtdOtherSellers = selectedItem.sellers.length - 1
 
@@ -16,11 +16,11 @@ const SellerSelector: StorefrontFunctionComponent<any> = () => {
 }
 
 //This is the schema form that will render the editable props on SiteEditor
-SellerSelector.schema = {
+SellerLink.schema = {
   title: 'editor.countdown.title',
   description: 'editor.countdown.description',
   type: 'object',
   properties: {},
 }
 
-export default SellerSelector
+export default SellerLink

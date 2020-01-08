@@ -1,5 +1,8 @@
 {
   "seller-selector": {
     "component": "SellerSelector"
+  },
+  "seller-link": {
+    "component": "SellerLink"
   }
 }
