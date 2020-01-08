@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import useProduct from 'vtex.product-context/useProduct'
 import { Link } from 'vtex.render-runtime'
+import { FormattedMessage } from 'react-intl'
 
 const SellerLink: StorefrontFunctionComponent<any> = () => {
   const { selectedItem, product } = useProduct()
@@ -11,7 +12,10 @@ const SellerLink: StorefrontFunctionComponent<any> = () => {
   return (
     <Fragment>
       <Link page="store.sellers" params={{ slug: product.linkText }}>
-        {qtdOtherSellers} more offer(s)
+        <FormattedMessage
+          id="store/seller-link"
+          values={{ count: qtdOtherSellers }}
+        />
       </Link>
     </Fragment>
   )

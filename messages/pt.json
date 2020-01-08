@@ -1,4 +1,3 @@
 {
-  "admin/test": "teste",
-  "store/test": "teste"
+  "store/seller-link": "{ count, plural, one { Veja outra oferta } other { # outras ofertas } }"
 }
