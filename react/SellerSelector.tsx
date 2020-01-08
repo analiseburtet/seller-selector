@@ -5,37 +5,39 @@ import BuyButton from 'vtex.store-components/BuyButton'
 const SellerSelector: StorefrontFunctionComponent<any> = ({ slug }) => {
   console.log('Slug', slug)
   const { product, selectedItem, selectedQuantity } = useProduct()
-  console.log(product, selectedItem, selectedQuantity)
-  console.log('aqui', product)
 
   if (!product) return <Fragment>Ooooops</Fragment>
   console.log('frist seller', selectedItem.sellers[0])
   return (
-    <Fragment>
-      teste?
-      {product.productName}
-      {selectedItem.sellers.map((selectedSeller: any) => (
-        <Fragment>
-          <br />
-          {selectedSeller.sellerName}
-          <BuyButton
-            skuItems={BuyButton.mapCatalogItemToCart({
-              product,
-              selectedItem,
-              selectedSeller,
-              selectedQuantity,
-            })}
-            available={
-              selectedSeller &&
-              selectedSeller.commertialOffer &&
-              selectedSeller.commertialOffer.AvailableQuantity > 0
-            }
-            isOneClickBuy
-            shouldAddToCart
-          ></BuyButton>
-        </Fragment>
-      ))}
-    </Fragment>
+    <div className="mr-auto ml-auto mw9 flex items-center">
+      <div className="justify-center">
+        <img src={selectedItem.images[0].imageUrl}></img>
+        <p style={{ textAlign: 'center' }}> {product.productName}</p>
+      </div>
+      <div>
+        {selectedItem.sellers.map((selectedSeller: any) => (
+          <div>
+            <br />
+            Selled by: {selectedSeller.sellerName}
+            <BuyButton
+              skuItems={BuyButton.mapCatalogItemToCart({
+                product,
+                selectedItem,
+                selectedSeller,
+                selectedQuantity,
+              })}
+              available={
+                selectedSeller &&
+                selectedSeller.commertialOffer &&
+                selectedSeller.commertialOffer.AvailableQuantity > 0
+              }
+              isOneClickBuy
+              shouldAddToCart
+            ></BuyButton>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
